@@ -10,17 +10,12 @@ from nltk.text import Text
 from nltk.corpus.reader.plaintext import PlaintextCorpusReader
 from collections import Counter
 
-
-
 with open('C:\Program Files (x86)\Python36-32\setnepal.txt','r') as f:
     f1 = f.read()
 
 list = open("C:\Program Files (x86)\Python36-32\setnepal.txt").readlines()
-
-
 f2=open('C:\Program Files (x86)\Python36-32\pnepalset.txt','w+') 
     
-
 list1 = []
 
 def extract_words(s):
@@ -66,19 +61,6 @@ for i in list:
     f2.write('\n')
 f2.close()
 
-#Buillding corpus 
-
-#corpusdir = 'E:/'
-#newcorpus = PlaintextCorpusReader(corpusdir, ['short.txt'])
-#raw = open('C:\Program Files (x86)\Python36-32\short.txt').read() 
-#abstract = nltk.Text(newcorpus.words('short.txt'))
-#st = str(abstract)
-#print(st)
-#tokens = nltk.word_tokenize(raw)
-#text = nltk.Text(tokens)
-#t = text.collocations()
-#print(t)
-
 #POS TAG 
 datadic = dict()
 conjdic = dict()
@@ -108,16 +90,14 @@ for i in list:
                     if (a.lower() == j.lower()):
                         listtag.append(b)
                 tag = Counter(listtag).most_common(1)
-                #print(tag)
                 for w in tag:
                    datadic.update({j.lower():w[0]})
     
         print(datadic)
         if ((len(datadic) == 1) & (c == 0)):
             f3=open('C:\Program Files (x86)\Python36-32\dictionary.txt','w+')
-            #print(datadic)
+            
             for k, v in datadic.items():
-                #print(k+v)
                     f3.write(k + '  ' + v)
                     f3.write('\n')
             datadic.clear()
@@ -126,34 +106,22 @@ for i in list:
 
         elif(len(datadic) == 100):
             f3=open('C:\Program Files (x86)\Python36-32\dictionary.txt','a+')
-            #print(datadic)
             for k, v in datadic.items():
-                #print(k+v)
                 f3.write(k + '  ' + v)
                 f3.write('\n')
             datadic.clear()
             f3.close()
         
-        
-        
-                
-
+ 
 with open('C:\Program Files (x86)\Python36-32\dabi.txt','r') as f3:
     f12 = f3.read()
 
 list = open("C:\Program Files (x86)\Python36-32\dabi.txt").readlines()
 
-
-
 with open('C:\Program Files (x86)\Python36-32\dictionary.txt','r') as f:
     f1 = f.read()
 
 list1 = open("C:\Program Files (x86)\Python36-32\dictionary.txt").readlines()
-
-for i in list1:
-    print(i)
-
-
 fpos = open('C:\Program Files (x86)\Python36-32\inputpos.txt', 'a+' )
 
 listpos = []
@@ -186,7 +154,6 @@ for i in list:
         fpos.write('\n')
         
     listpos.clear()
-
 fpos.close()            
 
 
